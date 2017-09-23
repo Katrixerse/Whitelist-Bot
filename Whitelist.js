@@ -71,4 +71,4 @@ if (command === "wl") {
 
   });
 
-bot.login(discord bot token")
+bot.login("discord bot token")
