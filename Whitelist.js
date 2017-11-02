@@ -41,7 +41,7 @@ const removeCooldown = ((userId, timeInSeconds) => {
 if (command === "wl") {
     let hwid = args.join(' ');
     let Whitelist = message.guild.roles.find("name", "Buyer");
-    if (message.member.roles.has(Whitelist Botbuyer.id)) {
+    if (message.member.roles.has(Whitelist.id)) {
     if (message.author.id === CodyID) return message.reply("You have been blacklisted from this command").then(message.delete())
     if (hwid.length < 15) return message.reply('You need to provide a valid hwid.').then(message.delete())
     if (hwid.length > 50) return message.reply("You need to provide a valid hwid.").then(message.delete())
