@@ -40,8 +40,7 @@ const removeCooldown = ((userId, timeInSeconds) => {
 
 if (command === "wl") {
     let hwid = args.join(' ');
-    let rolename = args.join(' ');
-    let Whitelist = message.guild.roles.find("name", rolename);
+    let Whitelist = message.guild.roles.find("name", "Buyer");
     if (message.member.roles.has(Whitelist Botbuyer.id)) {
     if (message.author.id === CodyID) return message.reply("You have been blacklisted from this command").then(message.delete())
     if (hwid.length < 15) return message.reply('You need to provide a valid hwid.').then(message.delete())
@@ -64,7 +63,7 @@ if (command === "wl") {
   } else {
       const fail = new Discord.RichEmbed(); // fail embed
       fail.setColor(randomcolor())
-      fail.addField("Whitelist Bot - Incorrect Permissions" , "You must have the role" + rolename + ".") //desc.
+      fail.addField("Whitelist Bot - Incorrect Permissions" , "You must have the role buyer.") //desc.
       message.channel.sendEmbed(fail)
   }
 }
