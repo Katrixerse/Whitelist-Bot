@@ -1,6 +1,6 @@
 const Discord = require('discord.js'); // Loads the discord.js library.
 const util = require('util'); // Loads the util module.
-const bot = new Discord.Client();  // Loads up Tetunus's depression.
+const bot = new Discord.Client();
 const prefix = ">"; //Defines the prefix for the bot.
 const BlacklistedID = "someones blacklisted id"
 const ID1 = "209111936929890305"
