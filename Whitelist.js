@@ -35,21 +35,21 @@ const removeCooldown = ((userId, timeInSeconds) => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
 
-    console.log (`[Whitelist Bot] [${message.author.username}] ${command}`); // Logs whenever a command is used and who used it ok thx
+    console.log (`[Whitelist Bot] [${message.author.username}] ${command}`); // Logs whenever a command is used and who used it.
 
 
 if (command === "wl") {
     let hwid = args.join(' ');
-    let Whitelist = message.guild.roles.find("name", "Buyer");
+    let Whitelist = message.guild.roles.find("name", "Buyer"); // fetched your buyer role 
     if (message.member.roles.has(Whitelist.id)) {
-    if (message.author.id === CodyID) return message.reply("You have been blacklisted from this command").then(message.delete())
+    if (message.author.id === BlacklistedID) return message.reply("You have been blacklisted from this command").then(message.delete())
     if (hwid.length < 15) return message.reply('You need to provide a valid hwid.').then(message.delete())
     if (hwid.length > 50) return message.reply("You need to provide a valid hwid.").then(message.delete())
     if(checkCooldown(message.author.id)) {
        const fail2 = new Discord.RichEmbed(); // fail embed
       fail2.setColor(randomcolor())
       fail2.addField("Whitelist Bot - Incorrect Permissions" , "You may only use this command once, please contact admistrators if you need further support.") //desc.
-      message.channel.sendEmbed(fail2).then(message.delete())
+      message.channel.send({fail2}).then(message.delete())
       return;
     }
     cooldownUsers.push(message.author.id);
@@ -59,12 +59,12 @@ if (command === "wl") {
     const success = new Discord.RichEmbed(); // fail embed
     success.setColor(randomcolor())
     success.addField("Whitelist Bot - Whitelist Request" , "Thank you for submitting your whitelist request, we will whitelist you within a maximum of 24 hours.") //desc.
-    message.channel.sendEmbed(success).then(message.delete())
+    message.channel.send({success}).then(message.delete())
   } else {
       const fail = new Discord.RichEmbed(); // fail embed
       fail.setColor(randomcolor())
       fail.addField("Whitelist Bot - Incorrect Permissions" , "You must have the role buyer.") //desc.
-      message.channel.sendEmbed(fail)
+      message.channel.send({fail})
   }
 }
 
